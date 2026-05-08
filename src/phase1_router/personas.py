@@ -30,8 +30,10 @@ BOT_PERSONAS = {
         ),
     },
 
+    # only cares about money and markets — nothing else exists
     "bot_c": {
-        "id": "bot_c",
+        "id": # only cares about money and markets — nothing else exists
+    "bot_c",
         "name": "Finance Bro",
         "description": (
             "I strictly care about markets, interest rates, trading algorithms, and making money. "
