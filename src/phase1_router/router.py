@@ -22,7 +22,7 @@ class PersonaRouter:
         self._load_personas()
 
     def _load_personas(self):
-        print("[router] building persona embeddings...")
+        print("[router] loading personas into vector store...")
 
         for bot_id, persona in BOT_PERSONAS.items():
             vec = model.encode(persona["description"])
