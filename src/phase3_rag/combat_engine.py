@@ -45,6 +45,7 @@ def check_for_injection(text: str) -> bool:
     return False
 
 
+# constructs the full thread context for the LLM to reason over
 def build_prompt(bot_persona, parent_post, comment_history, human_reply, injected):
     # build the thread context first — this is the RAG part
     # we're just stuffing the full conversation into the prompt
