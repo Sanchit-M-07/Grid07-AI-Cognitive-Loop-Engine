@@ -1,3 +1,4 @@
+# three personas for now — easy to add more by dropping a new entry here
 # personas.py
 # just a simple place to keep the bot definitions
 # adding more bots later should be as easy as dropping a new entry here
