@@ -28,9 +28,10 @@ llm = ChatGroq(
 
 
 # ── mock search tool ─────────────────────────────────────────
-# in prod this would hit a real SearxNG instance
+
 # for now we just return hardcoded headlines based on keywords
 # it's enough to give the bot something to react to
+# in prod this would hit a real searxng instance
 
 @tool
 def mock_searxng_search(query: str) -> str:
