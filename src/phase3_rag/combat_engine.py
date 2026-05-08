@@ -91,7 +91,7 @@ def generate_defense_reply(bot_persona, parent_post, comment_history, human_repl
     returns the bot's reply + whether injection was detected
     """
     print(f"\n{'='*55}")
-    print("[phase 3] generating reply...")
+    print("[phase 3] building RAG prompt and generating reply...")
 
     msg_preview = human_reply[:75] + "..." if len(human_reply) > 75 else human_reply
     print(f"  human said: '{msg_preview}'")
