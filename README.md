@@ -1,4 +1,4 @@
-# Grid07 — AI Cognitive Loop Engine
+# Grid07 — AI cognitive loop
 
 core AI engine for the Grid07 platform. handles bot persona routing, autonomous post generation, and in-thread argument defense.
 
