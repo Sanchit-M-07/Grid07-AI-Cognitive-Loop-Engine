@@ -17,7 +17,6 @@ from langgraph.graph import StateGraph, END
 
 from src.phase1_router.personas import BOT_PERSONAS
 
-
 # swap this out for ChatOpenAI or Ollama if you'd prefer
 # see .env.example for the key setup
 llm = ChatGroq(
@@ -32,6 +31,7 @@ llm = ChatGroq(
 # for now we just return hardcoded headlines based on keywords
 # it's enough to give the bot something to react to
 # in prod this would hit a real searxng instance
+
 
 @tool
 def mock_searxng_search(query: str) -> str:
@@ -50,13 +50,17 @@ def mock_searxng_search(query: str) -> str:
             "Sam Altman says AGI is closer than most people think."
         )
 
-    if any(word in q for word in ["market", "stock", "fed", "rate", "trading", "interest"]):
+    if any(
+        word in q for word in ["market", "stock", "fed", "rate", "trading", "interest"]
+    ):
         return (
             "S&P 500 jumps 2.3% after Fed signals rate pause. "
             "Hedge funds rotate into tech as yield curve inverts for 18th consecutive month."
         )
 
-    if any(word in q for word in ["privacy", "surveillance", "data", "regulation", "gdpr"]):
+    if any(
+        word in q for word in ["privacy", "surveillance", "data", "regulation", "gdpr"]
+    ):
         return (
             "EU AI Act passes final vote. "
             "Meta fined $1.3B for GDPR violations in transatlantic data transfer case."
@@ -68,7 +72,9 @@ def mock_searxng_search(query: str) -> str:
             "Elon Musk sets 2029 as target date for crewed Mars mission."
         )
 
-    if any(word in q for word in ["climate", "environment", "nature", "carbon", "green"]):
+    if any(
+        word in q for word in ["climate", "environment", "nature", "carbon", "green"]
+    ):
         return (
             "UN report warns of irreversible climate tipping points by 2035. "
             "Big Tech carbon pledges called greenwashing in new investigative report."
@@ -84,6 +90,7 @@ def mock_searxng_search(query: str) -> str:
 # ── graph state ───────────────────────────────────────────────
 # just a typed dict that gets passed between nodes
 # each node reads what it needs and writes what comes next
+
 
 class PostState(TypedDict):
     bot_id: str
@@ -135,7 +142,7 @@ def run_search(state: PostState) -> PostState:
 
 # ── node 3: write the post ────────────────────────────────────
 def draft_post(state: PostState) -> PostState:
-    print(f"\n[node 3] drafting post for {state['bot_id']}...")
+    print(f"\n[node 1] {state['bot_id']} picking topic...")
 
     prompt = f"""You're a social media bot. Your worldview:
 "{state['persona']}"
@@ -155,7 +162,7 @@ Then return ONLY this JSON (nothing else):
     raw = re.sub(r"```(?:json)?", "", raw).strip().strip("`").strip()
 
     # sometimes the model wraps it in extra text — just grab the JSON part
-    match = re.search(r'\{.*\}', raw, re.DOTALL)
+    match = re.search(r"\{.*\}", raw, re.DOTALL)
     if match:
         parsed = json.loads(match.group())
     else:
@@ -163,7 +170,7 @@ Then return ONLY this JSON (nothing else):
         parsed = {
             "bot_id": state["bot_id"],
             "topic": state["topic"],
-            "post_content": raw[:280]
+            "post_content": raw[:280],
         }
 
     parsed["post_content"] = parsed["post_content"][:280]
@@ -205,7 +212,7 @@ def generate_post_for_bot(bot_id: str) -> dict:
 
     print(f"\n{'='*55}")
     print(f"[langgraph] running pipeline → {bot_id} ({persona['name']})")
-    print('='*55)
+    print("=" * 55)
 
     result_state = graph.invoke(init)
     output = result_state["final_output"]
