@@ -177,7 +177,7 @@ Then return ONLY this JSON (nothing else):
     parsed["post_content"] = parsed["post_content"][:280]
     state["final_output"] = parsed
 
-    print(f"  drafted: {parsed['post_content'][:80]}...")
+    print(f"  post ready: {parsed['post_content'][:80]}...")
     return state
 
 
