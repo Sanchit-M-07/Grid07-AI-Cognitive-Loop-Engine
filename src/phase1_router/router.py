@@ -34,7 +34,7 @@ class PersonaRouter:
         self.vectors = np.array(self.vectors)
         print("[router] ready\n")
 
-    def route_post_to_bots(self, post_content: str, threshold: float = 0.3):
+    def route_post_to_bots(self, post_content: str, threshold: float = 0.25):
         """
         Takes an incoming post, embeds it, compares against all persona vectors.
         Returns a list of bots whose score clears the threshold.
