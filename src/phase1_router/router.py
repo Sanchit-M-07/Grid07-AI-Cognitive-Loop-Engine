@@ -28,7 +28,7 @@ class PersonaRouter:
             vec = model.encode(persona["description"])
             self.bot_ids.append(bot_id)
             self.vectors.append(vec)
-            print(f"  stored: {bot_id} ({persona['name']})")
+            print(f"  embedded: {bot_id} ({persona['name']})")
 
         # stack into a matrix so we can do batch cosine sim in one shot
         self.vectors = np.array(self.vectors)
