@@ -33,6 +33,7 @@ def main():
     # ── phase 1 ──────────────────────────────────────────────
     divider("PHASE 1 — Persona Routing")
     log.append("## Phase 1 — Persona Routing\n")
+    print("starting phase 1...")
 
     router = PersonaRouter()
 
