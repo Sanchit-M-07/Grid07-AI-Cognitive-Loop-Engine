@@ -11,6 +11,7 @@ from src.phase1_router.personas import BOT_PERSONAS
 
 # using MiniLM here because it's fast and decent quality
 # doesn't need an API key either which is nice for local dev
+# no api key needed, runs fully local
 model = SentenceTransformer("all-MiniLM-L6-v2")
 
 
