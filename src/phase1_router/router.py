@@ -32,7 +32,7 @@ class PersonaRouter:
 
         # stack into a matrix so we can do batch cosine sim in one shot
         self.vectors = np.array(self.vectors)
-        print("[router] ready\n")
+        print("[router] all personas loaded and ready\n")
 
     def route_post_to_bots(self, post_content: str, threshold: float = 0.3):
         """
