@@ -34,7 +34,7 @@ class PersonaRouter:
         self.vectors = np.array(self.vectors)
         print("[router] ready\n")
 
-    def route_post_to_bots(self, post_content: str, threshold: float = 0.25):
+    def route_post_to_bots(self, post_content: str, threshold: float = 0.3):
         """
         Takes an incoming post, embeds it, compares against all persona vectors.
         Returns a list of bots whose score clears the threshold.
@@ -42,7 +42,7 @@ class PersonaRouter:
         threshold of 0.3 works well with MiniLM — bump it up if you're getting
         too many false positives, lower it if nothing's matching
         """
-        print(f"[router] incoming post: \"{post_content}\"")
+        print(f'[router] incoming post: "{post_content}"')
 
         post_vec = model.encode(post_content).reshape(1, -1)
         scores = cosine_similarity(post_vec, self.vectors)[0]
@@ -54,11 +54,13 @@ class PersonaRouter:
             print(f"  {bot_id} ({persona_name}) → {score:.4f}")
 
             if score >= threshold:
-                results.append({
-                    "bot_id": bot_id,
-                    "name": persona_name,
-                    "score": round(score, 4),
-                })
+                results.append(
+                    {
+                        "bot_id": bot_id,
+                        "name": persona_name,
+                        "score": round(score, 4),
+                    }
+                )
 
         if results:
             print(f"\n  matched {len(results)} bot(s):")
