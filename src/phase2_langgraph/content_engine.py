@@ -167,7 +167,7 @@ Then return ONLY this JSON (nothing else):
     if match:
         parsed = json.loads(match.group())
     else:
-        # fallback — shouldn't happen often
+        # fallback if model returns something outside JSON — rare but possible
         parsed = {
             "bot_id": state["bot_id"],
             "topic": state["topic"],
