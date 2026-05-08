@@ -68,7 +68,7 @@ class PersonaRouter:
             for r in results:
                 print(f"    → {r['bot_id']} score={r['score']}")
         else:
-            print(f"\n  no matches above {threshold} — post might be too generic?")
+            print(f"\n  no matches above {threshold} — try lowering the threshold?")
 
         return results
 
