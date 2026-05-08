@@ -182,6 +182,7 @@ Then return ONLY this JSON (nothing else):
 
 
 # ── assemble the graph ────────────────────────────────────────
+# wire the three nodes together in sequence
 def build_graph():
     g = StateGraph(PostState)
 
