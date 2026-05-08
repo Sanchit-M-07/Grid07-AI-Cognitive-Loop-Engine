@@ -110,7 +110,7 @@ def generate_defense_reply(bot_persona, parent_post, comment_history, human_repl
     response = llm.invoke(prompt)
     reply = response.content.strip()[:280]  # enforce twitter length limit
 
-    print(f"\n  bot reply: {reply}")
+    print(f"\n  bot reply ({len(reply)} chars): {reply}")
 
     return {
         "reply": reply,
