@@ -9,3 +9,7 @@ logs/
 *.egg-info/
 dist/
 build/
+
+logs/
+!logs/
+!logs/execution_log.md
