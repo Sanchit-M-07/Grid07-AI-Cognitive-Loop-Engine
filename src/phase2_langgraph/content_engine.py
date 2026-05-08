@@ -92,6 +92,7 @@ def mock_searxng_search(query: str) -> str:
 # each node reads what it needs and writes what comes next
 
 
+# typed dict passed between all three nodes
 class PostState(TypedDict):
     bot_id: str
     persona: str
