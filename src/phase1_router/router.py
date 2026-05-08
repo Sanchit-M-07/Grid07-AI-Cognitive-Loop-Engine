@@ -46,7 +46,8 @@ class PersonaRouter:
         print(f'[router] incoming post: "{post_content}"')
 
         post_vec = model.encode(post_content).reshape(1, -1)
-        scores = cosine_similarity(post_vec, self.vectors)[0]
+        # batch compare post vector against all persona vectors at once
+    scores = cosine_similarity(post_vec, self.vectors)[0]
 
         results = []
         for i, bot_id in enumerate(self.bot_ids):
