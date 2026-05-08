@@ -15,6 +15,7 @@ core AI engine for the Grid07 platform. handles bot persona routing, autonomous 
 ---
 
 ## setup
+> tested on Python 3.13 / Windows 11
 
 ```bash
 # clone and enter the project
