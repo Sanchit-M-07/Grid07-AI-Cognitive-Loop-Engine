@@ -124,8 +124,8 @@ Reply ONLY with valid JSON, nothing else:
     state["topic"] = parsed["topic"]
     state["search_query"] = parsed["search_query"]
 
-    print(f"  topic: {state['topic']}")
-    print(f"  query: {state['search_query']}")
+    print(f"  chosen topic: {state['topic']}")
+    print(f"  search query: {state['search_query']}")
     return state
 
 
