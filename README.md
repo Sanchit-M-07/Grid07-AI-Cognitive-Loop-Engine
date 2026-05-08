@@ -130,3 +130,4 @@ llm = ChatOpenAI(model="gpt-4o-mini", api_key=os.getenv("OPENAI_API_KEY"))
 from langchain_ollama import ChatOllama
 llm = ChatOllama(model="llama3", base_url="http://localhost:11434")
 ```
+each node reads from state and writes back to it before passing along
