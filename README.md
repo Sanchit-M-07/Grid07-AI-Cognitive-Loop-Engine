@@ -132,3 +132,6 @@ llm = ChatOllama(model="llama3", base_url="http://localhost:11434")
 ```
 each node reads from state and writes back to it before passing along
 the bot never acknowledges the attempt — it just keeps arguing
+
+---
+built for Grid07 AI engineering assignment
