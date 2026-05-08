@@ -1,0 +1,46 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run All Phases",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/main.py",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    },
+    {
+      "name": "Phase 1 - Router Only",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/phase1_router/router.py",
+      "console": "integratedTerminal",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    },
+    {
+      "name": "Phase 2 - LangGraph Only",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/phase2_langgraph/content_engine.py",
+      "console": "integratedTerminal",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    },
+    {
+      "name": "Phase 3 - Combat Engine Only",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/phase3_rag/combat_engine.py",
+      "console": "integratedTerminal",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    }
+  ]
+}
