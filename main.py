@@ -101,7 +101,7 @@ def main():
     )
 
     # ── save log ─────────────────────────────────────────────
-    log_path = "logs/execution_log.md"
+    log_path = os.path.join("logs", "execution_log.md")
     with open(log_path, "w", encoding="utf-8") as f:
         f.write("\n".join(log))
 
